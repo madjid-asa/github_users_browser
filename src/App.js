@@ -7,7 +7,7 @@ const handleSelect = (selectedKey) => {
     alert('selected ' + selectedKey);
   };
 
-  const navInstance = (
+  const usersList = (
     <Nav bsStyle="pills" stacked activeKey={1} onSelect={handleSelect}>
       <NavItem eventKey={1} href="/home">NavItem 1 content</NavItem>
       <NavItem eventKey={2} title="Item">NavItem 2 content</NavItem>
@@ -26,8 +26,8 @@ class App extends Component {
         </div>
         <Grid className="App-content">
           <Row className="show-grid">
-            <Col xs={4} md={4}>{navInstance}</Col>
-            <Col xs={8} md={8}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
+            <Col xs={4} md={4}>{usersList}</Col>
+            <Col xs={8} md={8}>Click on a user or search for one</Col>
           </Row>
         </Grid>
       </div>
