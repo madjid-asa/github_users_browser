@@ -5,7 +5,8 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-search-input": "^0.11.2"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

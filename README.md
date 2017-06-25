@@ -21,9 +21,11 @@ npm install
 
 ## To do
 <ul>
-<li></li>
-<li></li>
-<li></li>
+  <li>View for user detail</li>
+  <li>Implement React-redux and Redux-thunk</li>
+  <li>Implement API with Github Public API</li>
+  <li>Search by technology</li>
+  <li>Follow users</li>
 </ul>
 
 ## License
