@@ -3,7 +3,13 @@
 
 ## Screenshots
 
-
+## Dependencies
+- React-bootstrap
+- Redux
+- React-redux
+- Redux-thunk
+- Axios
+ 
 ## Installation
 
 Clone Repo
@@ -21,10 +27,9 @@ npm install
 
 ## To do
 <ul>
-  <li>View for user detail</li>
-  <li>Implement React-redux and Redux-thunk</li>
-  <li>Implement API with Github Public API</li>
-  <li>Search by technology</li>
+  <li>Implement offline mode</li>
+  <li>Implement dynamic search with Github Public API</li>
+  <li>Search by technology or company</li>
   <li>Follow users</li>
 </ul>
 
