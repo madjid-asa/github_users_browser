@@ -1,9 +1,15 @@
 import githubApi from '../api/githubApi';
+import offlineApi from '../api/offlineApi';
 import * as types from '../actions/actionTypes';  
+
+let onLine = navigator.onLine;
+console.log(onLine);
+let api = onLine ? githubApi : offlineApi;
+console.log(api);
 
 export const loadUsers = () => {  
   return (dispatch) => {
-    return githubApi.getAllUsers().then(users => {
+    return api.getAllUsers().then(users => {
       dispatch(loadUsersSuccess(users));
     }).catch(error => {
       throw(error);
@@ -11,9 +17,10 @@ export const loadUsers = () => {
   };
 }
 
+
 export const viewUserDetail = (id) => {  
   return (dispatch) => {
-    return githubApi.getUserDetail(id).then(user => {
+    return api.getUserDetail(id).then(user => {
       dispatch(loadUserDetailSuccess(user));
     }).catch(error => {
       throw(error);

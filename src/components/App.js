@@ -17,8 +17,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
-    var usersList = (this.props.usersLoad) ? <UsersList xs={4} md={4} /> : <div>Chargement encours</div>;
+    var usersList = (this.props.usersLoad) ? <UsersList xs={4} md={4} /> : <Col xs={4} md={4}>Chargement encours</Col>;
     var user = (this.props.currentUser)? <UserDetail xs={8} md={8} /> : <Col xs={8} md={8}>Click on a user or search for one</Col>;
     console.log('user app',this.props.currentUser, user);
     return (

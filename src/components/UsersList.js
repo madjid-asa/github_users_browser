@@ -54,7 +54,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     viewUserDetail: (id) => {
-        console.log(id);
       dispatch(viewUserDetail(id));
     }
   }

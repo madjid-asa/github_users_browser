@@ -1,5 +1,5 @@
 # Github users browser 
-###   Github users browser was developed using React, React-bootstrap and Github Public API
+Github users browser was developed using React, React-bootstrap and Github Public API
 
 ## Screenshots
 
@@ -26,12 +26,11 @@ npm install
 ````
 
 ## To do
-<ul>
-  <li>Implement offline mode</li>
-  <li>Implement dynamic search with Github Public API</li>
-  <li>Search by technology or company</li>
-  <li>Follow users</li>
-</ul>
+- Implement dynamic search with Github Public API
+- Refresh local data by Github Public API
+- Search by technology or company
+- Follow users
+
 
 ## License
 MIT
