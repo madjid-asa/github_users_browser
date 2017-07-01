@@ -1,5 +1,4 @@
 import axios from 'axios';
-import users from '../data/users.json'
 
 const URL_API_GITHUB = 'https://api.github.com/';
 

@@ -1,5 +1,6 @@
 {
   "name": "github_user_browser",
+  "homepage": "https://madjid-asa.github.io/github_users_browser",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
