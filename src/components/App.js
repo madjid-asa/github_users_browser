@@ -30,7 +30,6 @@ class App extends Component {
 }
 
 function mapStateToProps(state, props) {
-  console.log(state);
   return {
     usersLoad: state.users.usersLoad,
     currentUser: state.users.currentUser
