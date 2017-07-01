@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';  
 import { Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import SearchInput, {createFilter} from 'react-search-input'
-// import users from '../users'
-import {viewUserDetail} from '../actions/userActions'
+import {viewUserDetail, searchUsers} from '../actions/userActions'
 
 const KEYS_TO_FILTERS = ['login']
 
@@ -20,7 +19,8 @@ class UsersList extends Component {
   }
 
   searchUpdated (term) {
-    this.setState({searchTerm: term})
+    this.props.searchUsers(term);
+    this.setState({searchTerm: term});
   }
 
   getFunctionItem (login) {
@@ -53,6 +53,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    searchUsers : (login) => {
+      dispatch(searchUsers(login));
+    },
     viewUserDetail: (id) => {
       dispatch(viewUserDetail(id));
     }
