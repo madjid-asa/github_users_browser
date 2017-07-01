@@ -1,4 +1,3 @@
-import axios from 'axios';
 import users from '../data/users.json'
 import repositories from '../data/repositories.json'
 

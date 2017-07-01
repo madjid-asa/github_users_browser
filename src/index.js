@@ -11,7 +11,6 @@ import {loadUsers} from './actions/userActions';
 const store = configureStore();
 store.dispatch(loadUsers());
 
-
 render(
     <Provider store={store}>
         <App />

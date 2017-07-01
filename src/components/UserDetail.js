@@ -1,29 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';  
 import {Panel, Col, Row, Image, ListGroup, ListGroupItem } from 'react-bootstrap';
-// import users from '../users'
 
 
 class UserDetail extends Component {
-  
-  constructor(props) {
-    super(props);
 
-
-    this.state = {
-
-    }
-  }
-
-  // getListRepos(repos){
-  //   return (
-  //     <ListGroup>
-  //       for(const repo of repos){
-  //         <ListGroupItem>{repo.name}</ListGroupItem>
-  //       }
-  //     </ListGroup>
-  //   );
-  // }
   render() {
     const repos = this.props.repos.map( repo => <ListGroupItem key={repo.id}>{repo.name}</ListGroupItem>);
     return (

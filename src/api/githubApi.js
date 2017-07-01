@@ -1,39 +1,47 @@
 import axios from 'axios';
-import users from '../data/users.json'
+
 
 const URL_API_GITHUB = 'https://api.github.com/';
 
-const instAxios = axios.create({
-  baseURL: URL_API_GITHUB
-});
 
-const getUserGithub = (login) => {
-    let url = `users/${login}`;
-    return instAxios.get(url);
-};
+class GithubApi {
 
-const getReposUserGithub = (login) => {
+  constructor(urlApi){
+    this.instAxios = axios.create({baseURL : urlApi});
+  }
+
+  getReposUserGithub (login) {
     let url = `users/${login}/repos`;
-    return instAxios.get(url);
-};
+    return this.instAxios.get(url);
+  }
 
-class GithubApi {  
-  static getUserDetail(login) {
-    return axios.all([getUserGithub(login), getReposUserGithub(login)])
+  getUserGithub(login) {
+    let url = `users/${login}`;
+    return this.instAxios.get(url);
+  }
+
+  getUserDetail(login) {
+    return axios.all([this.getUserGithub(login), this.getReposUserGithub(login)])
         .then(axios.spread((user, repos) => {
           return {user:user.data, repos:repos.data};
-        })).catch(error => {
-          throw(error);
-        })
+        })).catch(error => { throw(error); })
   }
-  static getAllUsers() {
+
+  searchUsers(term) {
+    let url = `search/users?q=${term}`;
+    return this.instAxios.get(url)
+      .then(response => { return response.data.items; })
+      .catch(error => { throw(error); });
+  }
+
+  getAllUsers() {
     // const url = getAPIUrl("users");
-    return instAxios.get("users")
-        .then(response => {
-          return response.data;
-        }).catch(error => {
-            throw(error);
-        });
+    return this.instAxios.get("users")
+        .then(response => { return response.data; })
+        .catch(error => { throw(error); });
   }
 }
-export default GithubApi; 
+
+const githubApi = new GithubApi(URL_API_GITHUB);
+
+export default githubApi; 

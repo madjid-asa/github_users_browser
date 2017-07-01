@@ -26,9 +26,8 @@ npm install
 ````
 
 ## To do
-- Implement dynamic search with Github Public API
-- Refresh local data by Github Public API
 - Search by technology or company
+- Manage errors
 - Follow users
 
 
