@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';  
-import { Col, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Col, Form, ListGroup, ListGroupItem } from 'react-bootstrap';
 import SearchInput, {createFilter} from 'react-search-input'
 import {viewUserDetail, searchUsers} from '../actions/userActions'
 
@@ -10,35 +10,33 @@ class UsersList extends Component {
   
   constructor(props) {
     super(props);
-
-    this.searchUpdated = this.searchUpdated.bind(this);
-
     this.state = {
       searchTerm: ''
     }
   }
 
   searchUpdated (term) {
-    this.props.searchUsers(term);
+    if(term.length > 2){
+      this.props.searchUsers(term);
+    }
     this.setState({searchTerm: term});
   }
 
-  getFunctionItem (login) {
-    return (login) =>{
-        return this.props.viewUserDetail(login);
-    }
-  }
+
   render() {
     const filteredUsers = this.props.users.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
-    return (
-        <Col xs={this.props.xs} md={this.props.md}>
-            <SearchInput className="input-group search-input" inputClassName="form-control" onChange={this.searchUpdated} />
-            <ListGroup>
-                {filteredUsers.map(user => {
+    const users = filteredUsers.map(user => {
                   return (
                     <ListGroupItem key={user.id} onClick={()=>this.props.viewUserDetail(user.login)}>{user.login}</ListGroupItem>
                   )
-                })}
+                });
+    return (
+        <Col xs={this.props.xs} md={this.props.md}>
+            <Form inline>
+              <SearchInput className="input-group search-input" inputClassName="form-control" onChange={this.searchUpdated} />
+            </Form>
+            <ListGroup>
+                {users}
             </ListGroup>
         </Col>
     )
