@@ -15,11 +15,11 @@ class UserDetail extends Component {
               <Image src={this.props.currentUser.avatar_url} thumbnail />
             </Col>
             <Col xs={8} md={8}>
-            <ListGroup>
-              <ListGroupItem header="Name">{this.props.currentUser.name}</ListGroupItem>
-              <ListGroupItem header="Blog" href={this.props.currentUser.blog}>{this.props.currentUser.blog}</ListGroupItem>
-              <ListGroupItem header="Email">{this.props.currentUser.email}</ListGroupItem>
-            </ListGroup>
+              <ListGroup>
+                <ListGroupItem header="Name">{this.props.currentUser.name}</ListGroupItem>
+                <ListGroupItem header="Blog" href={this.props.currentUser.blog}>{this.props.currentUser.blog}</ListGroupItem>
+                <ListGroupItem header="Email">{this.props.currentUser.email}</ListGroupItem>
+              </ListGroup>
             </Col>
           </Row>
           <Row>

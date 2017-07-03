@@ -1,15 +1,17 @@
 # Github users browser 
 Github users browser was developed using React, React-bootstrap and Github Public API
 
+
 ## Screenshots
 
 ## Dependencies
-- React-bootstrap
-- Redux
-- React-redux
-- Redux-thunk
-- Axios
- 
+- [React-bootstrap](https://github.com/react-bootstrap/react-bootstrap)
+- [React-redux](https://github.com/reactjs/react-redux)
+- [React-search-input](https://github.com/enkidevs/react-search-input)
+- [Redux](http://redux.js.org/)
+- [Redux-thunk](https://github.com/gaearon/redux-thunk)
+- [Axios](https://github.com/mzabriskie/axios)
+
 ## Installation
 
 Clone Repo
@@ -26,10 +28,8 @@ npm install
 ````
 
 ## To do
-- Implement dynamic search with Github Public API
-- Refresh local data by Github Public API
 - Search by technology or company
-- Follow users
+- Connect to Github and Follow users
 
 
 ## License

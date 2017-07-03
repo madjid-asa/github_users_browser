@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';  
-import { Col, Form, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import SearchInput, {createFilter} from 'react-search-input'
 import {viewUserDetail, searchUsers} from '../actions/userActions'
 
@@ -25,16 +25,12 @@ class UsersList extends Component {
 
   render() {
     const filteredUsers = this.props.users.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
-    const users = filteredUsers.map(user => {
-                  return (
+    const users = filteredUsers.map(user =>
                     <ListGroupItem key={user.id} onClick={()=>this.props.viewUserDetail(user.login)}>{user.login}</ListGroupItem>
-                  )
-                });
+                  );
     return (
         <Col xs={this.props.xs} md={this.props.md}>
-            <Form inline>
-              <SearchInput className="input-group search-input" inputClassName="form-control" onChange={this.searchUpdated} />
-            </Form>
+            <SearchInput className="input-group search-input" inputClassName="form-control" onChange={this.searchUpdated} />
             <ListGroup>
                 {users}
             </ListGroup>

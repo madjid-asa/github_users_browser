@@ -2,7 +2,7 @@ import users from '../data/users.json'
 import repositories from '../data/repositories.json'
 
 
-var OfflineApi = class OfflineApi {
+const OfflineApi = class OfflineApi {
 
   getUserDetail(login) {
     const getUser = (element) =>{return element.login === login;}
