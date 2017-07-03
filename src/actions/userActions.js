@@ -2,7 +2,6 @@ import githubApi from '../api/githubApi';
 import offlineApi from '../api/offlineApi';
 import * as types from '../actions/actionTypes';
 
-
 let onLine = navigator.onLine;
 let api = onLine ? githubApi : offlineApi;
 
@@ -18,13 +17,11 @@ export const loadUsers = () => {
 
 export const searchUsers = (login) => {
   return (dispatch) => {
-    if(onLine){
-      api.searchUsers(login).then(users => {
-        dispatch(loadUsersSuccess(users));
-      }).catch(error => {
-        throw(error);
-      });
-    }
+    api.searchUsers(login).then(users => {
+      dispatch(loadUsersSuccess(users));
+    }).catch(error => {
+      throw(error);
+    });
   }
 }
 
