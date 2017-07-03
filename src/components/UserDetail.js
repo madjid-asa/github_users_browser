@@ -4,9 +4,12 @@ import {Panel, Col, Row, Image, ListGroup, ListGroupItem } from 'react-bootstrap
 
 
 class UserDetail extends Component {
-
   render() {
-    const repos = this.props.repos.map( repo => <ListGroupItem key={repo.id}>{repo.name}</ListGroupItem>);
+    const msgDontFound = "Sorry, we don't have this information yet";
+    const name = this.props.currentUser.name ? this.props.currentUser.name : msgDontFound; 
+    const blog = this.props.currentUser.blog ? this.props.currentUser.blog : msgDontFound; 
+    
+    const repos = this.props.repos.map( repo => <ListGroupItem href={repo.html_url} target="_blank" key={repo.id}>{repo.name}</ListGroupItem>);
     return (
       <Col xs={this.props.xs} md={this.props.md}>
         <Panel header={this.props.currentUser.login} bsStyle="primary">
@@ -16,9 +19,8 @@ class UserDetail extends Component {
             </Col>
             <Col xs={8} md={8}>
               <ListGroup>
-                <ListGroupItem header="Name">{this.props.currentUser.name}</ListGroupItem>
-                <ListGroupItem header="Blog" href={this.props.currentUser.blog}>{this.props.currentUser.blog}</ListGroupItem>
-                <ListGroupItem header="Email">{this.props.currentUser.email}</ListGroupItem>
+                <ListGroupItem header="Name">{name}</ListGroupItem>
+                <ListGroupItem header="Blog" target="_blank" href={this.props.currentUser.blog}>{blog}</ListGroupItem>
               </ListGroup>
             </Col>
           </Row>

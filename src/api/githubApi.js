@@ -4,7 +4,7 @@ import axios from 'axios';
 const URL_API_GITHUB = 'https://api.github.com/';
 
 
-class GithubApi {
+const GithubApi = class GithubApi {
 
   constructor(urlApi){
     this.instAxios = axios.create({baseURL : urlApi});

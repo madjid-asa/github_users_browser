@@ -16,6 +16,11 @@ const OfflineApi = class OfflineApi {
     });
   }
 
+  searchUsers(term) {
+    return new Promise( (resolve, reject) =>{
+      resolve(users.items)});
+  }
+
   getAllUsers() {
     return new Promise( (resolve, reject) =>{
       resolve(users.items)});

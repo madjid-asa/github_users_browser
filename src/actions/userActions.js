@@ -2,25 +2,42 @@ import githubApi from '../api/githubApi';
 import offlineApi from '../api/offlineApi';
 import * as types from '../actions/actionTypes';
 
-let onLine = navigator.onLine;
-let api = onLine ? githubApi : offlineApi;
+var outOfLimitsGithubApi = false;
+
+const getApi = () => {
+  let onLine = navigator.onLine && ! outOfLimitsGithubApi;
+  return onLine ? githubApi : offlineApi;
+}
+
+const manageError403  = () => {
+  outOfLimitsGithubApi = true;
+  setTimeout(()=>{ outOfLimitsGithubApi=false; }, 60000);
+}
 
 export const loadUsers = () => {  
   return (dispatch) => {
-    return api.getAllUsers().then(users => {
+    return getApi().getAllUsers().then(users => {
       dispatch(loadUsersSuccess(users));
     }).catch(error => {
-      throw(error);
+      if (error.response.status === 403){
+        manageError403();
+      }else {
+        console.error(error);
+      }
     });
   };
 }
 
 export const searchUsers = (login) => {
   return (dispatch) => {
-    api.searchUsers(login).then(users => {
+    getApi().searchUsers(login).then(users => {
       dispatch(loadUsersSuccess(users));
     }).catch(error => {
-      throw(error);
+      if (error.response.status === 403){
+        manageError403();
+      }else {
+        console.error(error);
+      }
     });
   }
 }
@@ -28,10 +45,14 @@ export const searchUsers = (login) => {
 
 export const viewUserDetail = (id) => {  
   return (dispatch) => {
-    return api.getUserDetail(id).then(user => {
+    return getApi().getUserDetail(id).then(user => {
       dispatch(loadUserDetailSuccess(user));
     }).catch(error => {
-      throw(error);
+      if (error.response.status === 403){
+        manageError403();
+      }else {
+        console.error(error);
+      }
     });
   };
 }

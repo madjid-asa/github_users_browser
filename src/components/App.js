@@ -7,9 +7,6 @@ import UsersList from './UsersList';
 import UserDetail from './UserDetail';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   render() {
     var usersList = (this.props.usersLoad) ? <UsersList xs={4} md={4} /> : <Col xs={4} md={4}>Chargement encours</Col>;
