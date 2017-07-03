@@ -10,6 +10,7 @@ class UsersList extends Component {
   
   constructor(props) {
     super(props);
+    this.searchUpdated = this.searchUpdated.bind(this);
     this.state = {
       searchTerm: ''
     }
