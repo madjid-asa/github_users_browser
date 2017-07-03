@@ -1,9 +1,7 @@
 # Github users browser 
 Github users browser was developed using React, React-bootstrap and Github Public API
 
-[### Demo](https://madjid-asa.github.io/github_users_browser/)
-
-## Screenshots
+[Demo](https://madjid-asa.github.io/github_users_browser/)
 
 ## Dependencies
 - [React-bootstrap](https://github.com/react-bootstrap/react-bootstrap)
